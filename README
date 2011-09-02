@@ -1,0 +1,8 @@
+rotates with 4 seconds interval
+pause on mouse-enter
+resume on mouse-leave
+buttons to move forward or back
+
+filters on query string
+termlabel (Topic)
+region (Region)
