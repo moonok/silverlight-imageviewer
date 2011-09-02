@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="ChartViewerRadSL.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="350" 
+	xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:local="clr-namespace:ChartViewerRadSL;assembly=ChartViewerRadSL"
+	xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+    xmlns:mvvm="clr-namespace:MVVMSupport;assembly=MVVMSupport"
+    >
+    <UserControl.DataContext>
+        <local:ViewModel>
+            <local:ViewModel.Persons>
+            </local:ViewModel.Persons>
+            <local:ViewModel.Transitions>
+                <local:TransitionSet>
+                </local:TransitionSet>
+            </local:ViewModel.Transitions>
+        </local:ViewModel>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartViewerRadSL;component/Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="BusinessCardTemplate">
+                <Border Background="#FFEDEDED" Margin="47 20 47 20" BorderBrush="#FFEDEDED" BorderThickness="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Margin="3,3,3,2">
+                            <HyperlinkButton NavigateUri="{Binding ItemUri}" TargetName="_blank" IsTabStop="False" Command="{Binding PauseTimer}">
+                                <HyperlinkButton.Content>
+                                    <Image Grid.Column="0" Source="{Binding ChartImageUri}" Stretch="Uniform" VerticalAlignment="Top" HorizontalAlignment="Center" Width="345" Height="200" />
+                                </HyperlinkButton.Content>
+                            </HyperlinkButton>                            
+                            <TextBlock Text="{Binding Title}" FontFamily="Segoe UI Light" Foreground="#4d2c8d" FontSize="17" Padding="5,5,5,5" TextWrapping="Wrap" />
+                            <!-- <TextBlock Text="{Binding Description}" Margin="0 1" FontFamily="Segoe UI" Foreground="#FF494848" FontSize="12" /> -->
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Width="450" Height="300">
+
+        <!--<TextBlock Margin="314,280,0,0" TextWrapping="Wrap" FontFamily="Segoe UI Light" Foreground="#FF292929" FontSize="13" Text="More Charts and Tables" Height="20" VerticalAlignment="Top"/>-->
+        <HyperlinkButton x:Name="mainpage_hyperlinkbutton_moreCharts" TargetName="_self" Margin="314,285,0,0" Foreground="#4d2c8d" IsTabStop="False">More Charts and Tables</HyperlinkButton>
+        <telerik:RadTransitionControl x:Name="MainPage_RadTransitionControl"
+                                      mvvm:Commands.MouseEnterCommand="{Binding PauseTimerCommand}"
+                                      mvvm:Commands.MouseLeaveCommand="{Binding ResumeTimerCommand}" 
+                                      Transition="{Binding CurrentTransition}"  
+                                      ContentTemplate="{StaticResource BusinessCardTemplate}" 
+                                      Content="{Binding SelectedPerson}" 
+                                      Duration="0:0:0.75" />        
+        <telerik:RadButton Style="{StaticResource LeftArrowButton}" Command="{Binding SelectPrevious}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <telerik:RadButton Style="{StaticResource RightArrowButton}" Command="{Binding SelectNext}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBlock x:Name="mainpage_textblock_noChartsText" Visibility="Collapsed" Text="No Charts" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Gray"/>
+    </Grid>
+
+</UserControl>

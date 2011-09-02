@@ -1,0 +1,5 @@
+C:\Users\moonok\Desktop\IEB Syndicated Report Phase 2\Coding\Chart Viewer Telerik\ChartViewerRadSL_Current\ChartViewerRadSL.Web\bin\ChartViewerRadSL.Web.dll
+C:\Users\moonok\Desktop\IEB Syndicated Report Phase 2\Coding\Chart Viewer Telerik\ChartViewerRadSL_Current\ChartViewerRadSL.Web\bin\ChartViewerRadSL.Web.pdb
+C:\Users\moonok\Desktop\IEB Syndicated Report Phase 2\Coding\Chart Viewer Telerik\ChartViewerRadSL_Current\ChartViewerRadSL.Web\obj\Release\ResolveAssemblyReference.cache
+C:\Users\moonok\Desktop\IEB Syndicated Report Phase 2\Coding\Chart Viewer Telerik\ChartViewerRadSL_Current\ChartViewerRadSL.Web\obj\Release\ChartViewerRadSL.Web.dll
+C:\Users\moonok\Desktop\IEB Syndicated Report Phase 2\Coding\Chart Viewer Telerik\ChartViewerRadSL_Current\ChartViewerRadSL.Web\obj\Release\ChartViewerRadSL.Web.pdb
